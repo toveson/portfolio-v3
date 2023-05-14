@@ -9,11 +9,11 @@ export interface appProps {
 export const NavBar: React.FC<appProps> = (props) => {
   const {currentPage, setCurrentPage} = props
   return (
-    <Stack>
+    <Stack style={{borderBottom: "1pt solid black"}}>
       <Stack direction="row">
         <Typography>{currentPage}</Typography>
       </Stack>
-      
+
       <Stack direction="row" justifyContent="flex-end">
         <Stack direction="row" spacing={2}>
           <Button variant="outlined" onClick={() => setCurrentPage("Home")}>

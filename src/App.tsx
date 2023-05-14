@@ -1,6 +1,6 @@
 import {useState} from "react"
 import {NavBar} from "./components/NavBar"
-import About from "./views/About"
+import {About} from "./views/About"
 import Contact from "./views/Contact"
 import Home from "./views/Home"
 import Projects from "./views/Projects"
