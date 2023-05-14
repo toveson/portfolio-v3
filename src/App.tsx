@@ -1,21 +1,22 @@
+import {useState} from "react"
+import {NavBar} from "./components/NavBar"
 import About from "./views/About"
 import Contact from "./views/Contact"
 import Home from "./views/Home"
 import Projects from "./views/Projects"
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<string>("Home")
+
   return (
     // TODO: this will have view called and routing
-    // ? Get a navbar build first
+    // ? Set up useContext here?
     <>
-      <h1>Hello from app.tsx</h1>
-      {/* Nav bar will go here. */}
-      {/* Will need useState to manage routing. */}
-      {/* Use short circuit to show views */}
-      <About />
-      <Contact />
-      <Home />
-      <Projects />
+      <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      {currentPage === "About" && <About />}
+      {currentPage === "Contact" && <Contact />}
+      {currentPage === "Home" && <Home />}
+      {currentPage === "Projects" && <Projects />}
     </>
   )
 }
