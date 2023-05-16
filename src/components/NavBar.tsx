@@ -1,12 +1,12 @@
 import {Button, Stack, Typography} from "@mui/material"
 import React, {Dispatch, SetStateAction} from "react"
 
-export interface appProps {
+export interface navBarProps {
   currentPage: string
   setCurrentPage: Dispatch<SetStateAction<string>>
 }
 
-export const NavBar: React.FC<appProps> = (props) => {
+export const NavBar: React.FC<navBarProps> = (props) => {
   const {currentPage, setCurrentPage} = props
   return (
     <Stack style={{borderBottom: "1pt solid black"}}>

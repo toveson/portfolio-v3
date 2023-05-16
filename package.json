@@ -26,7 +26,7 @@
     "eject": "react-scripts eject",
     "format": "prettier src --check",
     "format:fix": "npm run format -- --write",
-    "push": "npm run format -- --write && git push"
+    "add": "npm run format -- --write && git add ."
   },
   "eslintConfig": {
     "extends": [
