@@ -8,26 +8,57 @@ export interface navBarProps {
 
 export const NavBar: React.FC<navBarProps> = (props) => {
   const {currentPage, setCurrentPage} = props
+
+  const styles = {
+    button: {
+      width: "125px"
+    }
+  }
+
   return (
-    <Stack style={{borderBottom: "1pt solid black"}}>
+    <Stack style={{border: "1pt solid black"}}>
       <Stack direction="row">
-        <Typography>{currentPage}</Typography>
+        <Typography variant="h4">{currentPage}</Typography>
       </Stack>
 
       <Stack direction="row" justifyContent="flex-end">
         <Stack direction="row" spacing={2}>
-          <Button variant="outlined" onClick={() => setCurrentPage("Home")}>
-            Home
-          </Button>
-          <Button variant="outlined" onClick={() => setCurrentPage("About")}>
-            About
-          </Button>
-          <Button variant="outlined" onClick={() => setCurrentPage("Projects")}>
-            Projects
-          </Button>
-          <Button variant="outlined" onClick={() => setCurrentPage("Contact")}>
-            Contact
-          </Button>
+          {currentPage !== "Home" && (
+            <Button
+              variant="outlined"
+              style={styles.button}
+              onClick={() => setCurrentPage("Home")}
+            >
+              Home
+            </Button>
+          )}
+          {currentPage !== "About" && (
+            <Button
+              variant="outlined"
+              style={styles.button}
+              onClick={() => setCurrentPage("About")}
+            >
+              About
+            </Button>
+          )}
+          {currentPage !== "Projects" && (
+            <Button
+              variant="outlined"
+              style={styles.button}
+              onClick={() => setCurrentPage("Projects")}
+            >
+              Projects
+            </Button>
+          )}
+          {currentPage !== "Contact" && (
+            <Button
+              variant="outlined"
+              style={styles.button}
+              onClick={() => setCurrentPage("Contact")}
+            >
+              Contact
+            </Button>
+          )}
         </Stack>
       </Stack>
     </Stack>
