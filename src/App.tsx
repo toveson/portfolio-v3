@@ -8,7 +8,7 @@ export default function App() {
   return (
     // ? Set up useContext here?
     <>
-      <NavBar setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {currentPage === "About" && <About />}
       {currentPage === "Contact" && <Contact />}
       {currentPage === "Home" && <Home />}

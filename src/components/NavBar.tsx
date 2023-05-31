@@ -18,7 +18,7 @@ export const NavBar: React.FC<navBarProps> = (props) => {
   return (
     <Stack
       direction="row"
-      style={{border: "1pt solid black", padding: "15px"}}
+      style={{borderBottom: "1pt solid black", padding: "15px"}}
       justifyContent="space-between"
     >
       <Stack direction="row">
