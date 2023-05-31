@@ -16,49 +16,45 @@ export const NavBar: React.FC<navBarProps> = (props) => {
   }
 
   return (
-    <Stack style={{border: "1pt solid black"}}>
+    <Stack
+      direction="row"
+      style={{border: "1pt solid black", padding: "15px"}}
+      justifyContent="space-between"
+    >
       <Stack direction="row">
         <Typography variant="h4">{currentPage}</Typography>
       </Stack>
 
       <Stack direction="row" justifyContent="flex-end">
         <Stack direction="row" spacing={2}>
-          {currentPage !== "Home" && (
-            <Button
-              variant="outlined"
-              style={styles.button}
-              onClick={() => setCurrentPage("Home")}
-            >
-              Home
-            </Button>
-          )}
-          {currentPage !== "About" && (
-            <Button
-              variant="outlined"
-              style={styles.button}
-              onClick={() => setCurrentPage("About")}
-            >
-              About
-            </Button>
-          )}
-          {currentPage !== "Projects" && (
-            <Button
-              variant="outlined"
-              style={styles.button}
-              onClick={() => setCurrentPage("Projects")}
-            >
-              Projects
-            </Button>
-          )}
-          {currentPage !== "Contact" && (
-            <Button
-              variant="outlined"
-              style={styles.button}
-              onClick={() => setCurrentPage("Contact")}
-            >
-              Contact
-            </Button>
-          )}
+          <Button
+            variant={currentPage === "Home" ? "contained" : "outlined"}
+            style={styles.button}
+            onClick={() => setCurrentPage("Home")}
+          >
+            Home
+          </Button>
+          <Button
+            variant={currentPage === "About" ? "contained" : "outlined"}
+            style={styles.button}
+            onClick={() => setCurrentPage("About")}
+          >
+            About
+          </Button>
+          <Button
+            variant={currentPage === "Projects" ? "contained" : "outlined"}
+            style={styles.button}
+            onClick={() => setCurrentPage("Projects")}
+          >
+            Projects
+          </Button>
+          <Button
+            variant={currentPage === "Contact" ? "contained" : "outlined"}
+            style={styles.button}
+            onClick={() => setCurrentPage("Contact")}
+          >
+            Contact
+          </Button>
         </Stack>
       </Stack>
     </Stack>
