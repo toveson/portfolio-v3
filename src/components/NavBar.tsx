@@ -25,12 +25,12 @@ export const NavBar: React.FC<navBarProps> = (props) => {
     <Stack
       direction="row"
       style={{borderBottom: "1pt solid black"}}
-      justifyContent="space-between"
+      justifyContent="right"
     >
       <Stack direction="row" justifyContent="flex-end">
         <Tabs onChange={handleChange} value={currentPage}>
           {buttons.map((button) => (
-            <Tab label={button.label} value={button.value} />
+            <Tab label={button.label} value={button.value} key={button.value} />
           ))}
         </Tabs>
       </Stack>
