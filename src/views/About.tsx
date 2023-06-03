@@ -11,7 +11,7 @@ export const About = () => {
             <Typography>
               Hi there! My name is Trever and I'm a frontend developer with a
               passion for creating beautiful and functional web experiences.
-              With 1 year of experience in the industry, I have a strong
+              With 2 years of experience in the industry, I have a strong
               foundation in HTML, CSS, JavaScript, and TypeScript, as well as
               experience with various front-end frameworks and libraries
               including React and MUI.

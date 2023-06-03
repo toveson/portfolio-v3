@@ -1,6 +1,6 @@
 import {useState} from "react"
 import {NavBar} from "./components/NavBar"
-import {About, Contact, Home, Projects} from "./views"
+import {About, Contact, Home, Projects, Resume} from "./views"
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("Home")
@@ -13,6 +13,7 @@ export default function App() {
       {currentPage === "Contact" && <Contact />}
       {currentPage === "Home" && <Home />}
       {currentPage === "Projects" && <Projects />}
+      {currentPage === "Resume" && <Resume />}
     </>
   )
 }
