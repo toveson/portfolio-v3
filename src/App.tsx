@@ -6,7 +6,6 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("Home")
 
   return (
-    // ? Set up useContext here?
     <>
       <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {currentPage === "About" && <About />}

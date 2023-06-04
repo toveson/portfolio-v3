@@ -3,19 +3,17 @@ import GitHubIcon from "@mui/icons-material/GitHub"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import {
   Button,
-  Card,
   CardContent,
   ListItemIcon,
   Stack,
   Typography
 } from "@mui/material"
+import {MainContainer} from "../components/MainContainer"
 
 export const Contact: React.FC = (props) => {
   return (
-    <div
-      style={{display: "flex", justifyContent: "center", paddingTop: "40px"}}
-    >
-      <Card style={{maxWidth: "75vw"}}>
+    <MainContainer
+      content={
         <Stack direction="row">
           <Stack>
             <CardContent>
@@ -75,18 +73,18 @@ export const Contact: React.FC = (props) => {
 
               {/* // ! not sure if this will work */}
               {/* <ListItemIcon>
-                <Button
-                  onClick={() => {
-                    window.location.href = "tel:+13852338011"
-                  }}
-                >
-                  <PhoneForwardedIcon fontSize="large" />
-                </Button>
-              </ListItemIcon> */}
+            <Button
+              onClick={() => {
+                window.location.href = "tel:+13852338011"
+              }}
+            >
+              <PhoneForwardedIcon fontSize="large" />
+            </Button>
+          </ListItemIcon> */}
             </Stack>
           </CardContent>
         </Stack>
-      </Card>
-    </div>
+      }
+    />
   )
 }

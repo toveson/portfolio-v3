@@ -1,3 +1,5 @@
+import {MainContainer} from "../components/MainContainer"
+
 export const Projects: React.FC = (props) => {
-  return <h1>Hello from Projects.tsx</h1>
+  return <MainContainer content={<h1>Hello from Projects.tsx</h1>} />
 }

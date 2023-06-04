@@ -10,11 +10,11 @@ export const NavBar: React.FC<navBarProps> = (props) => {
   const {currentPage, setCurrentPage} = props
 
   const buttons = [
-    {label: "Home", value: "Home"},
-    {label: "About", value: "About"},
-    {label: "Projects", value: "Projects"},
-    {label: "Resume", value: "Resume"},
-    {label: "Contact", value: "Contact"}
+    {label: "Home"},
+    {label: "About"},
+    {label: "Projects"},
+    {label: "Resume"},
+    {label: "Contact"}
   ]
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -24,13 +24,13 @@ export const NavBar: React.FC<navBarProps> = (props) => {
   return (
     <Stack
       direction="row"
-      style={{borderBottom: "1pt solid black"}}
+      // style={{borderBottom: "1pt solid black"}}
       justifyContent="right"
     >
       <Stack direction="row" justifyContent="flex-end">
         <Tabs onChange={handleChange} value={currentPage}>
           {buttons.map((button) => (
-            <Tab label={button.label} value={button.value} key={button.value} />
+            <Tab label={button.label} value={button.label} key={button.label} />
           ))}
         </Tabs>
       </Stack>
