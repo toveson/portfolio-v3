@@ -1,14 +1,14 @@
 // import ConstructionIcon from "@mui/icons-material/Construction"
 import {Avatar, Stack, Typography} from "@mui/material"
-import {useState} from "react"
+// import {useState} from "react"
 // import Typed from "react-typed"
 import {TypeAnimation} from "react-type-animation"
 import avatar from "../assets/images/trever-avatar.png"
 import {MainContainer} from "../components/MainContainer"
 
 export const Home: React.FC = (props) => {
-  const [nameTyped, setNameTyped] = useState(true)
-  const [skillTyped, setSkillTyped] = useState(true)
+  // const [nameTyped, setNameTyped] = useState(true)
+  // const [skillTyped, setSkillTyped] = useState(true)
 
   return (
     <MainContainer
