@@ -44,14 +44,13 @@ export const NavBar: React.FC<navBarProps> = (props) => {
           paddingLeft: "1rem"
         }}
       >
-        {currentPage === "Home" && <HomeIcon />}
-        {currentPage === "About" && <PersonIcon />}
-        {currentPage === "Projects" && <AccountTreeIcon />}
-        {currentPage === "Resume" && <AssignmentIndIcon />}
-        {currentPage === "Contact" && <ContactMailIcon />}
+        {currentPage === "Home" && <HomeIcon fontSize="large" />}
+        {currentPage === "About" && <PersonIcon fontSize="large" />}
+        {currentPage === "Projects" && <AccountTreeIcon fontSize="large" />}
+        {currentPage === "Resume" && <AssignmentIndIcon fontSize="large" />}
+        {currentPage === "Contact" && <ContactMailIcon fontSize="large" />}
       </Stack>
       <Stack direction="row" justifyContent="flex-end">
-        {/* This button is making the routing tabs not be on the bottom of the navbar */}
         <IconButton
           onClick={toggleDrawer}
           sx={{display: {xs: "block", sm: "none", md: "none", lg: "none"}}}
