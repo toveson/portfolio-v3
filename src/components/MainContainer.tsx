@@ -35,7 +35,7 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
       <Card
         style={{maxWidth: "75vw"}}
         // adds margin to the top and bottom when there is overflow
-        sx={hasOverflow ? {mt: 18, mb: 4} : {}}
+        sx={hasOverflow ? {mt: 22, mb: 4} : {}}
       >
         <CardContent>{content}</CardContent>
       </Card>

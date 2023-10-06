@@ -51,6 +51,7 @@ export const NavBar: React.FC<navBarProps> = (props) => {
         {currentPage === "Contact" && <ContactMailIcon />}
       </Stack>
       <Stack direction="row" justifyContent="flex-end">
+        {/* This button is making the routing tabs not be on the bottom of the navbar */}
         <IconButton
           onClick={toggleDrawer}
           sx={{display: {xs: "block", sm: "none", md: "none", lg: "none"}}}
@@ -60,7 +61,14 @@ export const NavBar: React.FC<navBarProps> = (props) => {
         <Tabs
           onChange={handleChange}
           value={currentPage}
-          sx={{display: {xs: "none", sm: "block", md: "block", lg: "block"}}}
+          sx={{
+            display: {
+              xs: "none",
+              sm: "block",
+              md: "block",
+              lg: "block"
+            }
+          }}
         >
           {buttons.map((button) => (
             <Tab label={button.label} value={button.label} key={button.label} />
