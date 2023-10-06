@@ -4,7 +4,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail"
 import HomeIcon from "@mui/icons-material/Home"
 import MenuIcon from "@mui/icons-material/Menu"
 import PersonIcon from "@mui/icons-material/Person"
-import {Drawer, IconButton, Stack, Tab, Tabs} from "@mui/material"
+import {Drawer, IconButton, ListItemIcon, Stack, Tab, Tabs} from "@mui/material"
 import React, {Dispatch, SetStateAction, useState} from "react"
 
 export interface navBarProps {
@@ -37,7 +37,23 @@ export const NavBar: React.FC<navBarProps> = (props) => {
   }
 
   return (
-    <Stack direction="row" justifyContent="right">
+    <Stack direction="row" justifyContent="space-between">
+      <Stack
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          paddingLeft: "2rem",
+          paddingRight: "2rem"
+        }}
+      >
+        <ListItemIcon>
+          {currentPage === "About" && <PersonIcon />}
+          {currentPage === "Contact" && <ContactMailIcon />}
+          {currentPage === "Home" && <HomeIcon />}
+          {currentPage === "Projects" && <AccountTreeIcon />}
+          {currentPage === "Resume" && <AssignmentIndIcon />}
+        </ListItemIcon>
+      </Stack>
       <Stack direction="row" justifyContent="flex-end">
         <IconButton
           onClick={toggleDrawer}
@@ -54,6 +70,7 @@ export const NavBar: React.FC<navBarProps> = (props) => {
             <Tab label={button.label} value={button.label} key={button.label} />
           ))}
         </Tabs>
+
         <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
           <Tabs
             onChange={handleChange}
