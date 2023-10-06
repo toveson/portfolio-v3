@@ -14,24 +14,21 @@ export const Contact: React.FC = (props) => {
   return (
     <MainContainer
       content={
-        <Stack direction="row">
-          <Stack>
+        <Stack>
+          <Stack style={{justifyContent: "center", alignItems: "center"}}>
             <CardContent>
               <Typography variant="h3">Feel free to contact me</Typography>
             </CardContent>
             <CardContent>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptate suscipit, ad repudiandae nemo, cupiditate error,
-                nesciunt facere at accusantium dolores blanditiis quas iure
-                soluta veniam voluptas maiores voluptatum neque itaque!
-              </Typography>
+              <Typography>Email: toveson9522@gmail.com</Typography>
+              <Typography>Phone: 385-233-8011</Typography>
             </CardContent>
           </Stack>
           <CardContent>
             <Stack
               spacing={3}
               style={{justifyContent: "center", alignItems: "center"}}
+              direction="row"
             >
               <ListItemIcon>
                 <Button
