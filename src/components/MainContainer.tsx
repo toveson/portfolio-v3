@@ -12,10 +12,11 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
       style={{
         display: "flex",
         justifyContent: "center",
-        height: "94vh",
+        height: "100vh",
         alignItems: "center",
         backgroundColor: "gray",
-        paddingTop: "40px"
+        paddingTop: "40px",
+        overflow: "hidden"
       }}
     >
       <Card style={{maxWidth: "75vw"}}>
