@@ -1,4 +1,9 @@
+import AccountTreeIcon from "@mui/icons-material/AccountTree"
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd"
+import ContactMailIcon from "@mui/icons-material/ContactMail"
+import HomeIcon from "@mui/icons-material/Home"
 import MenuIcon from "@mui/icons-material/Menu"
+import PersonIcon from "@mui/icons-material/Person"
 import {Drawer, IconButton, Stack, Tab, Tabs} from "@mui/material"
 import React, {Dispatch, SetStateAction, useState} from "react"
 
@@ -12,11 +17,11 @@ export const NavBar: React.FC<navBarProps> = (props) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const buttons = [
-    {label: "Home"},
-    {label: "About"},
-    {label: "Projects"},
-    {label: "Resume"},
-    {label: "Contact"}
+    {label: "Home", icon: <HomeIcon />},
+    {label: "About", icon: <PersonIcon />},
+    {label: "Projects", icon: <AccountTreeIcon />},
+    {label: "Resume", icon: <AssignmentIndIcon />},
+    {label: "Contact", icon: <ContactMailIcon />}
   ]
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -60,6 +65,7 @@ export const NavBar: React.FC<navBarProps> = (props) => {
                 label={button.label}
                 value={button.label}
                 key={button.label}
+                icon={button.icon}
                 onClick={handleTabClick}
               />
             ))}
