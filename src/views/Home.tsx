@@ -1,14 +1,40 @@
-// import ConstructionIcon from "@mui/icons-material/Construction"
 import {Avatar, Stack, Typography} from "@mui/material"
-// import {useState} from "react"
-// import Typed from "react-typed"
+import {createRef} from "react"
 import {TypeAnimation} from "react-type-animation"
 import avatar from "../assets/images/trever-avatar.png"
 import {MainContainer} from "../components/MainContainer"
 
 export const Home: React.FC = (props) => {
-  // const [nameTyped, setNameTyped] = useState(true)
-  // const [skillTyped, setSkillTyped] = useState(true)
+  const ref = createRef<HTMLSpanElement>()
+  const ref2 = createRef<HTMLParagraphElement>()
+
+  const CURSOR_CLASS_NAME = "custom-type-animation-cursor"
+  const CURSOR_CLASS_NAME2 = "custom-type-animation-cursor"
+
+  const showCursorName = (show: boolean) => {
+    if (!ref.current) {
+      return
+    }
+
+    const el = ref.current
+    if (show) {
+      el.classList.add(CURSOR_CLASS_NAME)
+    } else {
+      el.classList.remove(CURSOR_CLASS_NAME)
+    }
+  }
+  const showCursorDevSkills = (show: boolean) => {
+    if (!ref2.current) {
+      return
+    }
+
+    const el = ref2.current
+    if (show) {
+      el.classList.add(CURSOR_CLASS_NAME)
+    } else {
+      el.classList.remove(CURSOR_CLASS_NAME)
+    }
+  }
 
   return (
     <MainContainer
@@ -27,52 +53,33 @@ export const Home: React.FC = (props) => {
           </Stack>
           <Stack style={{justifyContent: "center", alignItems: "center"}}>
             <Typography variant="h4">
-              {/* <Typed
-                strings={["Hi, I'm Trever Oveson"]}
-                typeSpeed={70}
-                onComplete={() => setNameTyped(false)}
-                showCursor={nameTyped}
-              /> */}
               <TypeAnimation
-                sequence={["Hi, I'm Trever Oveson"]}
+                ref={ref}
+                cursor={false}
+                sequence={[
+                  "Hi, I'm Trever Oveson",
+                  () => showCursorName(false)
+                ]}
                 wrapper="span"
                 speed={10}
+                className={CURSOR_CLASS_NAME}
               />
             </Typography>
             <Typography variant="h5">
-              {/* <Typed
-                strings={["Web Development Skills:"]}
-                typeSpeed={100}
-                startDelay={2000}
-                onComplete={() => setSkillTyped(false)}
-                showCursor={skillTyped}
-              /> */}
               <TypeAnimation
-                sequence={[2000, "Web Development Skills:"]}
-                wrapper="span"
+                ref={ref2}
+                cursor={false}
+                sequence={[
+                  2000,
+                  "Web Development Skills:",
+                  () => showCursorDevSkills(false)
+                ]}
+                wrapper="p"
                 speed={4}
+                className={CURSOR_CLASS_NAME2}
               />
             </Typography>
             <Typography variant="h5">
-              {/* <Typed
-                // showCursor={false}
-                strings={[
-                  "CSS",
-                  "Git",
-                  "HTML",
-                  "JavaScript",
-                  "MUI",
-                  "Node",
-                  "React",
-                  "TypeScript"
-                ]}
-                startDelay={5000}
-                typeSpeed={70}
-                backSpeed={40}
-                backDelay={1000}
-                shuffle={true}
-                loop
-              /> */}
               <TypeAnimation
                 sequence={[
                   5000,
@@ -98,6 +105,18 @@ export const Home: React.FC = (props) => {
               />
             </Typography>
           </Stack>
+
+          <style>{`
+            .custom-type-animation-cursor::after {
+              content: "|";
+              animation: cursor 1.1s infinite step-start;
+            }
+            @keyframes cursor {
+              50% {
+                opacity: 0;
+              }
+            }
+          `}</style>
         </>
       }
     />
