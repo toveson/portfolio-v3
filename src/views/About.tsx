@@ -25,12 +25,9 @@ export const About = () => {
           <br />
           <Typography>
             I take pride in delivering clean and scalable code that not only
-            looks great but also performs well. Some of my favorite projects to
-            date include [LIST OF RECENT PROJECTS] where I was able to showcase
-            my skills in [LIST OF SKILLS SHOWCASED IN PROJECTS]. Feel free to
-            take a look at my portfolio and don't hesitate to reach out if
-            you're interested in collaborating or just want to chat about all
-            things code.
+            looks great but also performs well. Feel free to take a look at my
+            projects and don't hesitate to reach out if you're interested in
+            collaborating or just want to chat about all things code.
           </Typography>
           <br />
           <Typography>

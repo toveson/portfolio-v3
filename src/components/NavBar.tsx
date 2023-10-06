@@ -4,7 +4,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail"
 import HomeIcon from "@mui/icons-material/Home"
 import MenuIcon from "@mui/icons-material/Menu"
 import PersonIcon from "@mui/icons-material/Person"
-import {Drawer, IconButton, ListItemIcon, Stack, Tab, Tabs} from "@mui/material"
+import {Drawer, IconButton, Stack, Tab, Tabs} from "@mui/material"
 import React, {Dispatch, SetStateAction, useState} from "react"
 
 export interface navBarProps {
@@ -24,7 +24,7 @@ export const NavBar: React.FC<navBarProps> = (props) => {
     {label: "Contact", icon: <ContactMailIcon />}
   ]
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (e: React.SyntheticEvent, newValue: string) => {
     setCurrentPage(newValue)
   }
 
@@ -41,18 +41,14 @@ export const NavBar: React.FC<navBarProps> = (props) => {
       <Stack
         style={{
           justifyContent: "center",
-          alignItems: "center",
-          paddingLeft: "2rem",
-          paddingRight: "2rem"
+          paddingLeft: "1rem"
         }}
       >
-        <ListItemIcon>
-          {currentPage === "About" && <PersonIcon />}
-          {currentPage === "Contact" && <ContactMailIcon />}
-          {currentPage === "Home" && <HomeIcon />}
-          {currentPage === "Projects" && <AccountTreeIcon />}
-          {currentPage === "Resume" && <AssignmentIndIcon />}
-        </ListItemIcon>
+        {currentPage === "Home" && <HomeIcon />}
+        {currentPage === "About" && <PersonIcon />}
+        {currentPage === "Projects" && <AccountTreeIcon />}
+        {currentPage === "Resume" && <AssignmentIndIcon />}
+        {currentPage === "Contact" && <ContactMailIcon />}
       </Stack>
       <Stack direction="row" justifyContent="flex-end">
         <IconButton

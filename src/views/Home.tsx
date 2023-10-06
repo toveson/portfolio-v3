@@ -1,10 +1,39 @@
 import {Avatar, Stack, Typography} from "@mui/material"
-import {createRef} from "react"
+import {createRef, useEffect, useState} from "react"
 import {TypeAnimation} from "react-type-animation"
-import avatar from "../assets/images/trever-avatar.png"
+import avatar2 from "../assets/images/avatars/avatar-eyes-closed.png"
+import avatar5 from "../assets/images/avatars/avatar-happy.png"
+import avatar4 from "../assets/images/avatars/avatar-side.png"
+import avatar3 from "../assets/images/avatars/avatar-smile.png"
+import avatar7 from "../assets/images/avatars/avatar-squint.png"
+import avatar6 from "../assets/images/avatars/avatar-wink.png"
+import avatar1 from "../assets/images/avatars/trever-avatar.png"
 import {MainContainer} from "../components/MainContainer"
 
 export const Home: React.FC = (props) => {
+  const [currentAvatarIndex, setCurrentAvatarIndex] = useState(0)
+  const avatars = [
+    avatar1,
+    avatar2,
+    avatar3,
+    avatar4,
+    avatar5,
+    avatar6,
+    avatar7
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * avatars.length)
+      setCurrentAvatarIndex(randomIndex)
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+    }
+    // eslint-disable-next-line
+  }, [])
+
   const ref = createRef<HTMLSpanElement>()
   const ref2 = createRef<HTMLParagraphElement>()
 
@@ -47,7 +76,7 @@ export const Home: React.FC = (props) => {
                 height: "75%",
                 margin: "1rem"
               }}
-              src={avatar}
+              src={avatars[currentAvatarIndex]}
               alt="Trever's avatar"
             />
           </Stack>
