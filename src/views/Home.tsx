@@ -56,10 +56,7 @@ export const Home: React.FC = (props) => {
               <TypeAnimation
                 ref={ref}
                 cursor={false}
-                sequence={[
-                  "Hi, I'm Trever Oveson",
-                  () => showCursorName(false)
-                ]}
+                sequence={["Hi, I'm Trever", () => showCursorName(false)]}
                 wrapper="span"
                 speed={10}
                 className={CURSOR_CLASS_NAME}
@@ -71,7 +68,7 @@ export const Home: React.FC = (props) => {
                 cursor={false}
                 sequence={[
                   2000,
-                  "Web Development Skills:",
+                  "Web Dev Skills:",
                   () => showCursorDevSkills(false)
                 ]}
                 wrapper="p"
