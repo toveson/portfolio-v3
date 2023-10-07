@@ -3,10 +3,11 @@ import {useEffect, useRef, useState} from "react"
 
 export interface MainContainerProps {
   content: any
+  fullWidth?: boolean
 }
 
 export const MainContainer: React.FC<MainContainerProps> = (props) => {
-  const {content} = props
+  const {content, fullWidth} = props
   const containerRef = useRef<HTMLDivElement>(null)
   const [hasOverflow, setHasOverflow] = useState(false)
 
@@ -33,7 +34,7 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
       }}
     >
       <Card
-        style={{maxWidth: "75vw"}}
+        style={fullWidth ? {width: "75vw"} : {maxWidth: "75vw"}}
         // adds margin to the top and bottom when there is overflow
         sx={hasOverflow ? {mt: 30, mb: 10} : {}}
       >

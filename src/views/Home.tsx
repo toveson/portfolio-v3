@@ -1,25 +1,19 @@
 import {Avatar, Stack, Typography} from "@mui/material"
 import {createRef, useEffect, useState} from "react"
 import {TypeAnimation} from "react-type-animation"
-import avatar2 from "../assets/images/avatars/avatar-eyes-closed.png"
-import avatar5 from "../assets/images/avatars/avatar-happy.png"
-import avatar4 from "../assets/images/avatars/avatar-side.png"
-import avatar3 from "../assets/images/avatars/avatar-smile.png"
-import avatar7 from "../assets/images/avatars/avatar-squint.png"
-import avatar6 from "../assets/images/avatars/avatar-wink.png"
-import avatar1 from "../assets/images/avatars/trever-avatar.png"
+import images from "../assets/images"
 import {MainContainer} from "../components/MainContainer"
 
 export const Home: React.FC = (props) => {
   const [currentAvatarIndex, setCurrentAvatarIndex] = useState(0)
   const avatars = [
-    avatar1,
-    avatar2,
-    avatar3,
-    avatar4,
-    avatar5,
-    avatar6,
-    avatar7
+    images.avatar1,
+    images.avatar2,
+    images.avatar3,
+    images.avatar4,
+    images.avatar5,
+    images.avatar6,
+    images.avatar7
   ]
 
   useEffect(() => {

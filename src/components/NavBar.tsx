@@ -41,7 +41,7 @@ export const NavBar: React.FC<navBarProps> = (props) => {
       <Stack
         style={{
           justifyContent: "center",
-          paddingLeft: "1rem"
+          marginLeft: "1rem"
         }}
       >
         {currentPage === "Home" && <HomeIcon fontSize="large" />}
