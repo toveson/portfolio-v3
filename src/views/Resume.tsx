@@ -1,32 +1,50 @@
 import {Pagination, Stack, Typography} from "@mui/material"
 import {useEffect, useState} from "react"
 import languages from "../assets/js/languages"
+import skills from "../assets/js/skills"
 import {MainContainer} from "../components/MainContainer"
 import {ResumeCard} from "../components/ResumeCard"
 
 export const Resume: React.FC = (props) => {
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const cardsPerPage = 1
-  const indexOfLastCard = currentPage * cardsPerPage
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage
-  const currentCards = languages.slice(indexOfFirstCard, indexOfLastCard)
+  const [currentLanguagePage, setCurrentLanguagePage] = useState<number>(1)
+  const [currentSkillPage, setCurrentSkillPage] = useState<number>(1)
+  const indexOfLastLanguageCard = currentLanguagePage * 1
+  const indexOfFirstLanguageCard = indexOfLastLanguageCard - 1
+  const indexOfLastSkillCard = currentSkillPage * 1
+  const indexOfFirstSkillCard = indexOfLastSkillCard - 1
+  const currentLanguageCard = languages.slice(
+    indexOfFirstLanguageCard,
+    indexOfLastLanguageCard
+  )
+  const currentSkillCard = skills.slice(
+    indexOfFirstSkillCard,
+    indexOfLastSkillCard
+  )
 
-  const handlePageChange = (
+  const handleLanguagePageChange = (
     event: React.ChangeEvent<unknown>,
     page: number
   ) => {
-    setCurrentPage(page)
+    setCurrentLanguagePage(page)
+  }
+  const handleSkillPageChange = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
+    setCurrentSkillPage(page)
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentPage((prevPage) => {
+      setCurrentLanguagePage((prevPage) => {
         const nextPage = prevPage + 1
-        return nextPage > Math.ceil(languages.length / cardsPerPage)
-          ? 1
-          : nextPage
+        return nextPage > Math.ceil(languages.length / 1) ? 1 : nextPage
       })
-    }, 3000) // Change the interval time (in milliseconds) as per your requirement
+      setCurrentSkillPage((prevPage) => {
+        const nextPage = prevPage + 1
+        return nextPage > Math.ceil(skills.length / 1) ? 1 : nextPage
+      })
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [])
@@ -37,6 +55,7 @@ export const Resume: React.FC = (props) => {
       content={
         <Stack
           spacing={2}
+          // direction={{xs: "column", md: "row"}}
           style={{justifyContent: "center", alignItems: "center"}}
         >
           <Stack direction="row" spacing={2}>
@@ -53,13 +72,35 @@ export const Resume: React.FC = (props) => {
                   spacing={2}
                   style={{justifyContent: "center", alignItems: "center"}}
                 >
-                  <ResumeCard cardInfo={currentCards} />
+                  <ResumeCard cardInfo={currentLanguageCard} />
                   <Pagination
-                    count={Math.ceil(languages.length / cardsPerPage)}
-                    page={currentPage}
-                    onChange={handlePageChange}
+                    count={Math.ceil(languages.length / 1)}
+                    page={currentLanguagePage}
+                    onChange={handleLanguagePageChange}
                   />
                 </Stack>
+              </Stack>
+            </Stack>
+          </Stack>
+          <Stack spacing={2}>
+            <Typography variant="h4" textAlign="center">
+              Skills
+            </Typography>
+            <Stack
+              direction="row"
+              spacing={2}
+              style={{justifyContent: "center", alignItems: "center"}}
+            >
+              <Stack
+                spacing={2}
+                style={{justifyContent: "center", alignItems: "center"}}
+              >
+                <ResumeCard cardInfo={currentSkillCard} />
+                <Pagination
+                  count={Math.ceil(skills.length / 1)}
+                  page={currentSkillPage}
+                  onChange={handleSkillPageChange}
+                />
               </Stack>
             </Stack>
           </Stack>
