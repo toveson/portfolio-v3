@@ -57,7 +57,7 @@ export const Resume: React.FC = (props) => {
         <Stack
           spacing={2}
           direction={{md: "column", lg: "row"}}
-          style={{justifyContent: "space-between", alignItems: "center"}}
+          style={{justifyContent: "space-around", alignItems: "center"}}
         >
           <Stack direction="row" spacing={2}>
             <Stack spacing={2}>
