@@ -13,10 +13,21 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
 
   useEffect(() => {
     const containerElement = containerRef.current
-    if (containerElement) {
-      setHasOverflow(
-        containerElement.scrollHeight > containerElement.clientHeight
-      )
+
+    const handleResize = () => {
+      if (containerElement) {
+        setHasOverflow(
+          containerElement.scrollHeight > containerElement.clientHeight
+        )
+      }
+    }
+
+    handleResize()
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
     }
   }, [])
 

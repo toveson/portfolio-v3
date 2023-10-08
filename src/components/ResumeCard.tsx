@@ -85,7 +85,7 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
                         style={{justifyContent: "center", alignItems: "center"}}
                         spacing={2}
                       >
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="h5" color="text.secondary">
                           {cardInfo.text}
                         </Typography>
                         <Tooltip title={cardInfo.tooltip} placement="bottom">
