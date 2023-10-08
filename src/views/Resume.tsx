@@ -1,4 +1,4 @@
-import {Button, Pagination, Stack, Tooltip, Typography} from "@mui/material"
+import {Button, Stack, Tooltip} from "@mui/material"
 import {useEffect, useState} from "react"
 import languages from "../assets/js/languages"
 import resume from "../assets/js/resume"
@@ -82,56 +82,20 @@ export const Resume: React.FC = (props) => {
               ))}
             </Stack>
           </Stack>
-          <Stack direction="row" spacing={2}>
-            <Stack spacing={2}>
-              <Typography variant="h4" textAlign="center">
-                Languages
-              </Typography>
-              <Stack
-                direction="row"
-                spacing={2}
-                style={{justifyContent: "center", alignItems: "center"}}
-              >
-                <Stack
-                  spacing={1}
-                  style={{justifyContent: "center", alignItems: "center"}}
-                >
-                  <ResumeCard cardInfo={currentLanguageCard} />
-                  <Pagination
-                    size="small"
-                    count={Math.ceil(languages.length / 1)}
-                    page={currentLanguagePage}
-                    onChange={handleLanguagePageChange}
-                    siblingCount={0}
-                  />
-                </Stack>
-              </Stack>
-            </Stack>
-          </Stack>
-          <Stack spacing={2}>
-            <Typography variant="h4" textAlign="center">
-              Skills
-            </Typography>
-            <Stack
-              direction="row"
-              spacing={2}
-              style={{justifyContent: "center", alignItems: "center"}}
-            >
-              <Stack
-                spacing={1}
-                style={{justifyContent: "center", alignItems: "center"}}
-              >
-                <ResumeCard cardInfo={currentSkillCard} />
-                <Pagination
-                  size="small"
-                  count={Math.ceil(skills.length / 1)}
-                  page={currentSkillPage}
-                  onChange={handleSkillPageChange}
-                  siblingCount={0}
-                />
-              </Stack>
-            </Stack>
-          </Stack>
+          <ResumeCard
+            cardInfo={currentLanguageCard}
+            count={Math.ceil(languages.length / 1)}
+            page={currentLanguagePage}
+            onChange={handleLanguagePageChange}
+            title="Languages"
+          />
+          <ResumeCard
+            cardInfo={currentSkillCard}
+            count={Math.ceil(skills.length / 1)}
+            page={currentSkillPage}
+            onChange={handleSkillPageChange}
+            title="Skills"
+          />
         </Stack>
       }
     />
