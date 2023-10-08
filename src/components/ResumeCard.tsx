@@ -7,6 +7,7 @@ import {
   Tooltip,
   Typography
 } from "@mui/material"
+import {useState} from "react"
 
 interface CardInfo {
   img: string
@@ -24,11 +25,24 @@ export interface resumeCardProps {
 
 export const ResumeCard: React.FC<resumeCardProps> = (props) => {
   const {cardInfo} = props
+  const [currentPage, setCurrentPage] = useState<number>(1) // Add state variable for current page
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
+    setCurrentPage(page) // Add event handler for page change
+  }
+
+  const indexOfLastCard = currentPage * 1
+  const indexOfFirstCard = indexOfLastCard - 1
+  const currentCard = cardInfo.slice(indexOfFirstCard, indexOfLastCard)
 
   return (
     <Box sx={{width: "100%"}}>
       {cardInfo.map((cardInfo, key) => (
         <Card
+          raised={true}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -49,11 +63,14 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                height: "200px",
-                width: "200px"
+                height: "250px",
+                width: "250px"
               }}
             />
-            <Stack style={{justifyContent: "center", alignItems: "center"}}>
+            <Stack
+              style={{justifyContent: "center", alignItems: "center"}}
+              spacing={2}
+            >
               <Typography variant="body2" color="text.secondary">
                 {cardInfo.text}
               </Typography>

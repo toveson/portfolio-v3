@@ -27,6 +27,8 @@ import passportImg from "./resumeSkills/passport-logo.png"
 import railwayImg from "./resumeSkills/railway-logo.png"
 import reactNativeImg from "./resumeSkills/react-native.gif"
 import reactImg from "./resumeSkills/spinning-react.gif"
+// other images
+import pdfImg from "./pdf-logo.png"
 
 const images = {
   // avatars
@@ -59,7 +61,10 @@ const images = {
   passport: passportImg,
   railway: railwayImg,
   react: reactImg,
-  reactNative: reactNativeImg
+  reactNative: reactNativeImg,
+
+  // other images
+  pdf: pdfImg
 }
 
 export default images

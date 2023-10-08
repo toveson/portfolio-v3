@@ -1,6 +1,7 @@
-import {Pagination, Stack, Typography} from "@mui/material"
+import {Button, Pagination, Stack, Tooltip, Typography} from "@mui/material"
 import {useEffect, useState} from "react"
 import languages from "../assets/js/languages"
+import resume from "../assets/js/resume"
 import skills from "../assets/js/skills"
 import {MainContainer} from "../components/MainContainer"
 import {ResumeCard} from "../components/ResumeCard"
@@ -55,9 +56,32 @@ export const Resume: React.FC = (props) => {
       content={
         <Stack
           spacing={2}
-          // direction={{xs: "column", md: "row"}}
-          style={{justifyContent: "center", alignItems: "center"}}
+          direction={{md: "column", lg: "row"}}
+          style={{justifyContent: "space-between", alignItems: "center"}}
         >
+          <Stack direction="row" spacing={2}>
+            <Stack spacing={2}>
+              {resume.map((resume, key) => (
+                <Stack
+                  spacing={2}
+                  style={{justifyContent: "center", alignItems: "center"}}
+                  key={key}
+                >
+                  <Tooltip title={resume.tooltip} placement="bottom">
+                    <Button
+                      variant="outlined"
+                      fullWidth={true}
+                      endIcon={<resume.btnIcon />}
+                      href={resume.docLink}
+                      target="_blank"
+                    >
+                      {resume.btnTxt}
+                    </Button>
+                  </Tooltip>
+                </Stack>
+              ))}
+            </Stack>
+          </Stack>
           <Stack direction="row" spacing={2}>
             <Stack spacing={2}>
               <Typography variant="h4" textAlign="center">
@@ -69,14 +93,16 @@ export const Resume: React.FC = (props) => {
                 style={{justifyContent: "center", alignItems: "center"}}
               >
                 <Stack
-                  spacing={2}
+                  spacing={1}
                   style={{justifyContent: "center", alignItems: "center"}}
                 >
                   <ResumeCard cardInfo={currentLanguageCard} />
                   <Pagination
+                    size="small"
                     count={Math.ceil(languages.length / 1)}
                     page={currentLanguagePage}
                     onChange={handleLanguagePageChange}
+                    siblingCount={0}
                   />
                 </Stack>
               </Stack>
@@ -92,14 +118,16 @@ export const Resume: React.FC = (props) => {
               style={{justifyContent: "center", alignItems: "center"}}
             >
               <Stack
-                spacing={2}
+                spacing={1}
                 style={{justifyContent: "center", alignItems: "center"}}
               >
                 <ResumeCard cardInfo={currentSkillCard} />
                 <Pagination
+                  size="small"
                   count={Math.ceil(skills.length / 1)}
                   page={currentSkillPage}
                   onChange={handleSkillPageChange}
+                  siblingCount={0}
                 />
               </Stack>
             </Stack>
