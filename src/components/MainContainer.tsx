@@ -9,7 +9,8 @@ export interface MainContainerProps {
 export const MainContainer: React.FC<MainContainerProps> = (props) => {
   const {content, fullWidth} = props
   const containerRef = useRef<HTMLDivElement>(null)
-  const [hasOverflow, setHasOverflow] = useState(false)
+  const [hasOverflow, setHasOverflow] = useState<boolean>(false)
+  const [screenWidth, setScreenWidth] = useState<string>("75vw")
 
   useEffect(() => {
     const containerElement = containerRef.current
@@ -22,14 +23,28 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
       }
     }
 
+    const handleWidthChange = () => {
+      const currentScreenWidth = window.innerWidth
+      if (currentScreenWidth > 900) {
+        setScreenWidth("75vw")
+      } else {
+        setScreenWidth("85vw")
+      }
+    }
+
     handleResize()
+    handleWidthChange()
 
     window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleWidthChange)
 
     return () => {
       window.removeEventListener("resize", handleResize)
+      window.removeEventListener("resize", handleWidthChange)
     }
   }, [])
+
+  console.log(screenWidth)
 
   return (
     <div
@@ -46,7 +61,7 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
     >
       <Card
         raised={true}
-        style={fullWidth ? {width: "75vw"} : {maxWidth: "75vw"}}
+        style={fullWidth ? {width: screenWidth} : {maxWidth: screenWidth}}
         // adds margin to the top and bottom when there is overflow
         sx={hasOverflow ? {mt: 45, mb: 10} : {}}
       >
