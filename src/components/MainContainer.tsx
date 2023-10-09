@@ -44,8 +44,6 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
     }
   }, [])
 
-  console.log(screenWidth)
-
   return (
     <div
       ref={containerRef}
