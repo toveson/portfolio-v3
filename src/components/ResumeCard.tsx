@@ -6,9 +6,7 @@ import {
   Pagination,
   Stack,
   Tooltip,
-  Typography,
-  useMediaQuery,
-  useTheme
+  Typography
 } from "@mui/material"
 
 interface CardInfo {
@@ -31,8 +29,6 @@ export interface resumeCardProps {
 
 export const ResumeCard: React.FC<resumeCardProps> = (props) => {
   const {cardInfo, count, onChange, page, title} = props
-  const theme = useTheme()
-  const isVertical = useMediaQuery(theme.breakpoints.up("sm"))
 
   return (
     <Stack direction="row" spacing={2}>
