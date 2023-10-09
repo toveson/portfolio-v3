@@ -6,7 +6,9 @@ import {
   Pagination,
   Stack,
   Tooltip,
-  Typography
+  Typography,
+  useMediaQuery,
+  useTheme
 } from "@mui/material"
 
 interface CardInfo {
@@ -29,6 +31,8 @@ export interface resumeCardProps {
 
 export const ResumeCard: React.FC<resumeCardProps> = (props) => {
   const {cardInfo, count, onChange, page, title} = props
+  const theme = useTheme()
+  const isVertical = useMediaQuery(theme.breakpoints.up("sm"))
 
   return (
     <Stack direction="row" spacing={2}>
@@ -41,7 +45,7 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
         }}
       >
         <Stack spacing={2}>
-          <Typography variant="h4" textAlign="center" color="white">
+          <Typography variant="h5" textAlign="center" color="white">
             {title}
           </Typography>
           <Stack
@@ -85,9 +89,7 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
                         style={{justifyContent: "center", alignItems: "center"}}
                         spacing={2}
                       >
-                        <Typography variant="h5" color="text.secondary">
-                          {cardInfo.text}
-                        </Typography>
+                        <Typography variant="body1">{cardInfo.text}</Typography>
                         <Tooltip title={cardInfo.tooltip} placement="bottom">
                           <Button
                             variant="outlined"
