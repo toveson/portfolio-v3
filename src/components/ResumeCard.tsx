@@ -51,7 +51,10 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
           >
             <Stack
               spacing={1}
-              style={{justifyContent: "center", alignItems: "center"}}
+              style={{
+                justifyContent: "center",
+                alignItems: "center"
+              }}
             >
               <Box sx={{width: "100%"}}>
                 {cardInfo.map((cardInfo, key) => (
@@ -66,8 +69,14 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
                     key={key}
                   >
                     <Stack
-                      direction={{xs: "column", md: "row"}}
-                      style={{justifyContent: "center", alignItems: "center"}}
+                      direction={{
+                        xs: "column",
+                        md: "row"
+                      }}
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
                     >
                       <CardMedia
                         alt={cardInfo.altImg}
@@ -82,7 +91,10 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
                         }}
                       />
                       <Stack
-                        style={{justifyContent: "center", alignItems: "center"}}
+                        style={{
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
                         spacing={2}
                       >
                         <Typography variant="body1">{cardInfo.text}</Typography>
