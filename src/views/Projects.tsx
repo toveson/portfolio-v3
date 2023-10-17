@@ -15,6 +15,15 @@ export const Projects: React.FC = (props) => {
             />
           </div>
           <h1> Projects are currently under construction</h1>
+          <div style={{display: "flex", justifyContent: "center"}}>
+            <p>
+              Feel free to take a look at the{" "}
+              <a href="https://toveson.github.io/react-portfolio/#/portfolio">
+                projects
+              </a>{" "}
+              on my previous portfolio.
+            </p>
+          </div>
         </>
       }
     />
