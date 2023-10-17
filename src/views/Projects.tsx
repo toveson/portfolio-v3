@@ -18,7 +18,11 @@ export const Projects: React.FC = (props) => {
           <div style={{display: "flex", justifyContent: "center"}}>
             <p>
               Feel free to take a look at the{" "}
-              <a href="https://toveson.github.io/react-portfolio/#/portfolio">
+              <a
+                href="https://toveson.github.io/react-portfolio/#/portfolio"
+                target="_blank"
+                rel="noreferrer"
+              >
                 projects
               </a>{" "}
               on my previous portfolio.
