@@ -67,9 +67,8 @@ export const Projects: React.FC = (props) => {
                     sx={{
                       backgroundSize: "contain",
                       backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center"
-                      // height: "250px",
-                      // width: "250px"
+                      backgroundPosition: "center",
+                      height: "500px"
                     }}
                   />
                 </Stack>
