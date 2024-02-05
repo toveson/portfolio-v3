@@ -1,33 +1,64 @@
-import ConstructionIcon from "@mui/icons-material/Construction"
+import { Card, Stack, CardMedia, Typography, Tooltip, Button } from "@mui/material"
 import {MainContainer} from "../components/MainContainer"
 
 export const Projects: React.FC = (props) => {
-  // return <MainContainer content={<h1>Hello from Projects.tsx</h1>} />
   return (
     <MainContainer
       content={
         <>
-          <div style={{display: "flex", justifyContent: "center"}}>
-            <ConstructionIcon
-              style={{
-                fontSize: 400
+          <Card
+            raised={true}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "100%"
+            }}
+          >
+            <Stack
+              direction={{
+                xs: "column",
+                md: "row"
               }}
-            />
-          </div>
-          <h1> Projects are currently under construction</h1>
-          <div style={{display: "flex", justifyContent: "center"}}>
-            <p>
-              Feel free to take a look at the{" "}
-              <a
-                href="https://toveson.github.io/react-portfolio/#/portfolio"
-                target="_blank"
-                rel="noreferrer"
+              style={{
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <CardMedia
+                // alt={cardInfo.altImg}
+                component="img"
+                // image={cardInfo.img}
+                sx={{
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  height: "250px",
+                  width: "250px"
+                }}
+              />
+              <Stack
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+                spacing={2}
               >
-                projects
-              </a>{" "}
-              on my previous portfolio.
-            </p>
-          </div>
+                <Typography variant="body1">Some Text</Typography>
+                <Tooltip title={"cardInfo.tooltip"} placement="bottom">
+                  <Button
+                    variant="outlined"
+                    fullWidth={true}
+                    // endIcon={<cardInfo.btnIcon />}
+                    href={"www.google.com/"}
+                    target="_blank"
+                  >
+                    button text
+                  </Button>
+                </Tooltip>
+              </Stack>
+            </Stack>
+          </Card>
         </>
       }
     />
