@@ -27,6 +27,9 @@ import passportImg from "./resumeSkills/passport-logo.png"
 import railwayImg from "./resumeSkills/railway-logo.png"
 import reactNativeImg from "./resumeSkills/react-native.gif"
 import reactImg from "./resumeSkills/spinning-react.gif"
+// project images
+import adventure from "./projects/vntr.png"
+import weatherDashboardImg from "./projects/weather-dashboard.png"
 // other images
 import pdfImg from "./pdf-logo.png"
 
@@ -62,6 +65,10 @@ const images = {
   railway: railwayImg,
   react: reactImg,
   reactNative: reactNativeImg,
+
+  // project images
+  weatherDashboard: weatherDashboardImg,
+  vntr: adventure,
 
   // other images
   pdf: pdfImg

@@ -115,6 +115,7 @@ export const ResumeCard: React.FC<resumeCardProps> = (props) => {
                 ))}
               </Box>
               <Pagination
+                style={{marginBottom: "5px"}}
                 size="small"
                 count={count}
                 page={page}
